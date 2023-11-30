@@ -49,17 +49,17 @@ export const CLUSTER_LOCAL_STORAGE_KEY = "cluster-serum-explorer";
 export const LOCALNET_URL = "http://localhost:8899/";
 
 export const CLUSTERS: SolanaCluster[] = [
-  {
-    label: "Mainnet Beta",
-    network: "mainnet-beta",
-    endpoint:
-      process.env.NEXT_PUBLIC_MAINNET_URL || clusterApiUrl("mainnet-beta"),
-  },
   // {
-  //   label: "Mainnet (Serum)",
+  //   label: "Mainnet Beta",
   //   network: "mainnet-beta",
-  //   endpoint: "https://solana-api.projectserum.com",
+  //   endpoint:
+  //     process.env.NEXT_PUBLIC_MAINNET_URL || clusterApiUrl("mainnet-beta"),
   // },
+  {
+    label: "Mainnet (Serum)",
+    network: "mainnet-beta",
+    endpoint: "https://solana-api.projectserum.com",
+  },
   {
     label: "Testnet",
     network: "testnet",
@@ -93,15 +93,15 @@ export const SolanaProvider = ({ children }: SolanaProviderProps) => {
   }, [cluster, customEndpoint]);
 
   const wallets = useMemo(
-    () => [
-      new PhantomWalletAdapter(),
-      new GlowWalletAdapter(),
-      new SlopeWalletAdapter(),
-      new TorusWalletAdapter(),
-      new BackpackWalletAdapter(),
-      new SolflareWalletAdapter(),
-    ],
-    []
+      () => [
+        new PhantomWalletAdapter(),
+        new GlowWalletAdapter(),
+        new SlopeWalletAdapter(),
+        new TorusWalletAdapter(),
+        new BackpackWalletAdapter(),
+        new SolflareWalletAdapter(),
+      ],
+      []
   );
 
   const isActiveCluster = (selectedCluster: SolanaCluster): boolean => {
@@ -143,7 +143,7 @@ export const SolanaProvider = ({ children }: SolanaProviderProps) => {
   useEffect(() => {
     if (router.query.network) {
       _setCluster(
-        CLUSTERS.filter((c) => c.network === router.query.network)[0]
+          CLUSTERS.filter((c) => c.network === router.query.network)[0]
       );
     } else _setCluster(CLUSTERS[0]);
   }, [router.query.network]);
@@ -159,23 +159,23 @@ export const SolanaProvider = ({ children }: SolanaProviderProps) => {
   }, [router.query.customRPC]);
 
   return (
-    <ConnectionProvider endpoint={endpoint}>
-      <WalletProvider wallets={wallets} autoConnect>
-        <WalletModalProvider>
-          <SolanaContext.Provider
-            value={{
-              cluster,
-              setCluster,
-              customEndpoint,
-              setCustomEndpoint,
-              isActiveCluster,
-            }}
-          >
-            {children}
-          </SolanaContext.Provider>
-        </WalletModalProvider>
-      </WalletProvider>
-    </ConnectionProvider>
+      <ConnectionProvider endpoint={endpoint}>
+        <WalletProvider wallets={wallets} autoConnect>
+          <WalletModalProvider>
+            <SolanaContext.Provider
+                value={{
+                  cluster,
+                  setCluster,
+                  customEndpoint,
+                  setCustomEndpoint,
+                  isActiveCluster,
+                }}
+            >
+              {children}
+            </SolanaContext.Provider>
+          </WalletModalProvider>
+        </WalletProvider>
+      </ConnectionProvider>
   );
 };
 
