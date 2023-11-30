@@ -1,14 +1,15 @@
-# Serum Explorer 👀💧
+# Openbook Explorer 👀💧
 
-A explorer dashboard to search for various markets deployed on a [Serum Dex V3](https://github.com/project-serum/serum-dex) program.
+A explorer dashboard to search for various markets deployed on a [Openbook Dex V3](https://github.com/spacemonkeyforever/openbook-explorer) program.
 
 ## Getting Started
 
 First, run the development server:
 
 ```bash
-npm run dev
-# or
+# install dependencies
+yarn install
+# run
 yarn dev
 ```
 
