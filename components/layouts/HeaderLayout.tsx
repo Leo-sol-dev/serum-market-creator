@@ -11,7 +11,7 @@ export const HeaderLayout: FC<HeaderLayoutProps> = ({ title, children }) => {
   return (
     <>
       <Head>
-        <title>{title ? `${title} - Serum Explorer` : `Serum Explorer`}</title>
+        <title>{title ? `${title} - OpenBook Explorer` : `OpenBook Explorer`}</title>
       </Head>
       <div className="w-full h-screen overflow-y-auto flex flex-col space-y-4 justify-between">
         <div className="w-full mx-auto">
