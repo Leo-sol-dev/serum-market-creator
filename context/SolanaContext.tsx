@@ -49,16 +49,11 @@ export const CLUSTER_LOCAL_STORAGE_KEY = "cluster-serum-explorer";
 export const LOCALNET_URL = "http://localhost:8899/";
 
 export const CLUSTERS: SolanaCluster[] = [
-  // {
-  //   label: "Mainnet Beta",
-  //   network: "mainnet-beta",
-  //   endpoint:
-  //     process.env.NEXT_PUBLIC_MAINNET_URL || clusterApiUrl("mainnet-beta"),
-  // },
   {
-    label: "Mainnet (Serum)",
+    label: "Mainnet Beta",
     network: "mainnet-beta",
-    endpoint: "https://solana-api.projectserum.com",
+    endpoint:
+      process.env.NEXT_PUBLIC_MAINNET_URL || clusterApiUrl("mainnet-beta"),
   },
   {
     label: "Testnet",
