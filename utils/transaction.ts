@@ -93,8 +93,6 @@ export async function sendWalletAllTransactions(
   return txSigs;
 }
 
-// ------------- MANGO MARKETS (https://github.com/blockworks-foundation/mango-ui/blob/b6abfc6c13b71fc17ebbe766f50b8215fa1ec54f/src/utils/send.tsx) -------------
-
 export const getUnixTs = () => {
   return new Date().getTime() / 1000;
 };

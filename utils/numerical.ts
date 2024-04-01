@@ -2,7 +2,6 @@ import BigNumber from "bignumber.js";
 import BN from "bn.js";
 
 // fuck this stupid fucking language and stupid fucking libraries
-// https://github.com/indutny/bn.js/issues/209
 export function toPlainString(num: string) {
   return `${num}`.replace(/(-?)(\d*)\.?(\d+)e([+-]\d+)/, (a, b, c, d, e) =>
     e < 0
