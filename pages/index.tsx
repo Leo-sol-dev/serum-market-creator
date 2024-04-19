@@ -72,7 +72,7 @@ const Home = () => {
             </div>
           ) : (
             <div>
-              <p className="text-slate-500">Unavailable</p>
+              <p className="text-slate-500">Unavailable</p><span/>
             </div>
           )}
         </StatBlock>
